@@ -73,20 +73,20 @@ describe("Testing | Index", () => {
   })
   //New Format Auto
   test('should not return "autoNew" if ppu contains 2 letters, 4 numbers and has length 6', (done) => {
-    let validPpuAutoNew = 'XX1111';
-    let typePpu = index.verifyPpuType(validPpuAutoNew);
+    let inValidPpuAutoNew = 'XX1111';
+    let typePpu = index.verifyPpuType(inValidPpuAutoNew);
     expect(typePpu).not.toBe( _variables.autoNewFormat);
     done();
   })
   test('should not return "autoNew" if ppu contains 3 letters, 3 numbers and has length 6', (done) => {
-    let validPpuAutoNew = 'XXX011';
-    let typePpu = index.verifyPpuType(validPpuAutoNew);
+    let inValidPpuAutoNew = 'XXX011';
+    let typePpu = index.verifyPpuType(inValidPpuAutoNew);
     expect(typePpu).not.toBe(_variables.autoNewFormat);
     done();
   });
   test('should not return "autoNew" if ppu contains 0, 3 letters, 3 numbers, and has length 6 but start with a number', (done) => {
-    let validPpuAutoNew = '1XX111';
-    let typePpu = index.verifyPpuType(validPpuAutoNew);
+    let inValidPpuAutoNew = '1XX111';
+    let typePpu = index.verifyPpuType(inValidPpuAutoNew);
     expect(typePpu).not.toBe(_variables.autoNewFormat);
     done();
   });
@@ -96,29 +96,29 @@ describe("Testing | Index", () => {
     expect(typePpu).toBe(_variables.autoNewFormat);
     done();
   });
-  //Old Format Auto
-  test('should not return "autoOld" if ppu contains 2 letters, 4 numbers and has length 6', (done) => {
-    let validPpuAutoOld = 'XXXX11';
-    let typePpu = index.verifyPpuType(validPpuAutoOld);
-    expect(typePpu).not.toBe( _variables.autoOldFormat);
+  //Carro Arrastre Format
+  test('should not return "carroArrastre" if ppu contains 2 letters, 4 numbers and has length 6', (done) => {
+    let inValidPpuCarroArrastre = 'XXXX11';
+    let typePpu = index.verifyPpuType(inValidPpuCarroArrastre);
+    expect(typePpu).not.toBe( _variables.carroArrastreFormat);
     done();
   })
-  test('should not return "autoOld" if ppu contains 3 letters, 3 numbers and has length 6', (done) => {
-    let validPpuAutoOld = 'XXX011';
-    let typePpu = index.verifyPpuType(validPpuAutoOld);
-    expect(typePpu).not.toBe(_variables.autoOldFormat);
+  test('should not return "carroArrastre" if ppu contains 3 letters, 3 numbers and has length 6', (done) => {
+    let inValidPpuCarroArrastre = 'XXX011';
+    let typePpu = index.verifyPpuType(inValidPpuCarroArrastre);
+    expect(typePpu).not.toBe(_variables.carroArrastreFormat);
     done();
   });
-  test('should not return "autoOld" if ppu contains 0, 3 letters, 3 numbers, and has length 6 but start with a number', (done) => {
-    let validPpuAutoOld = '1XX111';
-    let typePpu = index.verifyPpuType(validPpuAutoOld);
-    expect(typePpu).not.toBe(_variables.autoOldFormat);
+  test('should not return "carroArrastre" if ppu contains 0, 3 letters, 3 numbers, and has length 6 but start with a number', (done) => {
+    let inValidPpuCarroArrastre = '1XX111';
+    let typePpu = index.verifyPpuType(inValidPpuCarroArrastre);
+    expect(typePpu).not.toBe(_variables.carroArrastreFormat);
     done();
   });
-  test('should return "autoOld" if ppu not contains 0, 2 letters, 4 numbers and has length 6', (done) => {
-    let validPpuAutoOld = 'XX1111';
-    let typePpu = index.verifyPpuType(validPpuAutoOld);
-    expect(typePpu).toBe(_variables.autoOldFormat);
+  test('should return "carroArrastre" if ppu not contains 0, 2 letters, 4 numbers and has length 6', (done) => {
+    let validPpuCarroArrastre = 'XXX111';
+    let typePpu = index.verifyPpuType(validPpuCarroArrastre);
+    expect(typePpu).toBe(_variables.carroArrastreFormat);
     done();
   });
 });

@@ -3,5 +3,6 @@
   "motoNewFormat": "motoNewFormat",
   "motoOldFormat": "motoNewOldFormat",
   "autoNewFormat": "autoNewFormat",
-  "autoOldFormat": "autoOldFormat"
+  "autoOldFormat": "autoOldFormat",
+  "carroArrastreFormat": "carroArrastreFormat"
 }
