@@ -7,16 +7,6 @@ describe("Testing | Index", () => {
     try {
       let invalidLenghtPPU = 'XX111';
       index.verifyPpuType(invalidLenghtPPU);
-      console.error(JSON.stringify(verifyPpuType));
-    } catch (e) {
-      done();
-    }
-  });
-  test('should fail if the ppu not has length 6 when triying to verify type', (done) => {
-    try {
-      let invalidLenghtPPU = 'XX111';
-      index.verifyPpuType(invalidLenghtPPU);
-      console.error(JSON.stringify(verifyPpuType));
     } catch (e) {
       done();
     }
@@ -25,57 +15,57 @@ describe("Testing | Index", () => {
   test('should not return "motoNew" if ppu not contains 0, 3 letters and has length 6', (done) => {
     let inValidPpuMoto = 'XX0111';
     let typePpu = index.verifyPpuType(inValidPpuMoto);
-    expect(typePpu).not.toBe( _variables.motoNewFormat);
+    expect(typePpu).not.toBe(_variables.motoNewFormat);
     done();
   })
   test('should not return "motoNew" if ppu not contains 0, 3 letters and has length 6 but 0 is not at index 3', (done) => {
     let inValidPpuMoto = 'XXX111';
     let typePpu = index.verifyPpuType(inValidPpuMoto);
-    expect(typePpu).not.toBe( _variables.motoNewFormat);
+    expect(typePpu).not.toBe(_variables.motoNewFormat);
     done();
   })
   test('should not return "motoNew" if ppu contains 0, 3 letters and has length 6 but 0 is not at index 3', (done) => {
     let inValidPpuMoto = 'XXX110';
     let typePpu = index.verifyPpuType(inValidPpuMoto);
-    expect(typePpu).not.toBe( _variables.motoNewFormat);
+    expect(typePpu).not.toBe(_variables.motoNewFormat);
     done();
   })
   test('should not return "motoNew" if ppu contains 0, 3 letters and has length 6 but 0 is at index 3', (done) => {
     let validPpuMotoNew = 'XXX011';
     let typePpu = index.verifyPpuType(validPpuMotoNew);
-    expect(typePpu).toBe( _variables.motoNewFormat);
+    expect(typePpu).toBe(_variables.motoNewFormat);
     done();
   })
   // Old Moto Format
   test('should not return "motoOld" if ppu not contains 0, 2 letters, 4 numbers and has length 6', (done) => {
     let invalidPpuMotoOld = 'XX1111';
     let typePpu = index.verifyPpuType(invalidPpuMotoOld);
-    expect(typePpu).not.toBe( _variables.motoOldFormat);
+    expect(typePpu).not.toBe(_variables.motoOldFormat);
     done();
   })
   test('should not return "motoOld" if ppu contains 0, 2 letters, 4 numbers and has length 6 but 0 is at index 2', (done) => {
     let invalidPpuMotoOld = 'XX1110';
     let typePpu = index.verifyPpuType(invalidPpuMotoOld);
-    expect(typePpu).not.toBe( _variables.motoOldFormat);
+    expect(typePpu).not.toBe(_variables.motoOldFormat);
     done();
   })
   test('should not return "motoOld" if ppu contains 0, 2 letters, 4 numbers and has length 6 but 0 is not at index 2', (done) => {
-    let invalidPpuMotoOld = 'X0X111';
+    let invalidPpuMotoOld = 'XX1110';
     let typePpu = index.verifyPpuType(invalidPpuMotoOld);
-    expect(typePpu).not.toBe( _variables.motoOldFormat);
+    expect(typePpu).not.toBe(_variables.motoOldFormat);
     done();
   })
   test('should return "motoOld" if ppu contains 0, 2 letters, 4 numbers and has length 6 but 0 is at index 2', (done) => {
     let validPpuMotoOld = 'XX0111';
     let typePpu = index.verifyPpuType(validPpuMotoOld);
-    expect(typePpu).toBe( _variables.motoOldFormat);
+    expect(typePpu).toBe(_variables.motoOldFormat);
     done();
   })
   //New Format Auto
   test('should not return "autoNew" if ppu contains 2 letters, 4 numbers and has length 6', (done) => {
     let inValidPpuAutoNew = 'XX1111';
     let typePpu = index.verifyPpuType(inValidPpuAutoNew);
-    expect(typePpu).not.toBe( _variables.autoNewFormat);
+    expect(typePpu).not.toBe(_variables.autoNewFormat);
     done();
   })
   test('should not return "autoNew" if ppu contains 3 letters, 3 numbers and has length 6', (done) => {
@@ -85,10 +75,13 @@ describe("Testing | Index", () => {
     done();
   });
   test('should not return "autoNew" if ppu contains 0, 3 letters, 3 numbers, and has length 6 but start with a number', (done) => {
-    let inValidPpuAutoNew = '1XX111';
-    let typePpu = index.verifyPpuType(inValidPpuAutoNew);
-    expect(typePpu).not.toBe(_variables.autoNewFormat);
-    done();
+    try {
+      let inValidPpuAutoNew = '1XX111';
+      let typePpu = index.verifyPpuType(inValidPpuAutoNew);
+      expect(typePpu).not.toBe(_variables.autoNewFormat);
+    } catch (e) {
+      done();
+    }
   });
   test('should return "autoNew" if ppu not contains 0, 2 letters, 4 numbers and has length 6', (done) => {
     let validPpuAutoNew = 'XXXX11';
@@ -100,7 +93,7 @@ describe("Testing | Index", () => {
   test('should not return "carroArrastre" if ppu contains 2 letters, 4 numbers and has length 6', (done) => {
     let inValidPpuCarroArrastre = 'XXXX11';
     let typePpu = index.verifyPpuType(inValidPpuCarroArrastre);
-    expect(typePpu).not.toBe( _variables.carroArrastreFormat);
+    expect(typePpu).not.toBe(_variables.carroArrastreFormat);
     done();
   })
   test('should not return "carroArrastre" if ppu contains 3 letters, 3 numbers and has length 6', (done) => {
@@ -110,15 +103,26 @@ describe("Testing | Index", () => {
     done();
   });
   test('should not return "carroArrastre" if ppu contains 0, 3 letters, 3 numbers, and has length 6 but start with a number', (done) => {
-    let inValidPpuCarroArrastre = '1XX111';
-    let typePpu = index.verifyPpuType(inValidPpuCarroArrastre);
-    expect(typePpu).not.toBe(_variables.carroArrastreFormat);
-    done();
+    try {
+      let inValidPpuCarroArrastre = '1XX111';
+      let typePpu = index.verifyPpuType(inValidPpuCarroArrastre);
+      expect(typePpu).not.toBe(_variables.carroArrastreFormat);
+    } catch (e) {
+      done();
+    }
   });
   test('should return "carroArrastre" if ppu not contains 0, 2 letters, 4 numbers and has length 6', (done) => {
     let validPpuCarroArrastre = 'XXX111';
     let typePpu = index.verifyPpuType(validPpuCarroArrastre);
     expect(typePpu).toBe(_variables.carroArrastreFormat);
     done();
+  });
+  test('should return erro if no has any valid format and has length 6', (done) => {
+    try {
+      let invalidPPU = '*^·"·$&';
+      index.verifyPpuType(invalidPPU);
+    } catch (e) {
+      done();
+    }
   });
 });

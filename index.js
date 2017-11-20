@@ -29,7 +29,7 @@ let index = {
     if (isCarroArrastre(ppu)) {
       return _variables.carroArrastreFormat;
     }
-    // Ver que tipo de formato PPU, formato nuevo auto, formato viejo auto, viejo moto
+    throw new Error("Ppu no corresponde a ningun formato válido")
   },
   transformInPreNumer: () => {
   },
