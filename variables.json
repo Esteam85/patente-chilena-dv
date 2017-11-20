@@ -1,6 +1,7 @@
 {
   "valid_letters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   "motoNewFormat": "motoNewFormat",
-  "motoOldFormat": "motoNewOld",
-  "autoNewFormat": "autoNewFormat"
+  "motoOldFormat": "motoNewOldFormat",
+  "autoNewFormat": "autoNewFormat",
+  "autoOldFormat": "autoOldFormat"
 }
