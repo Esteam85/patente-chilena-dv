@@ -27,6 +27,7 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "babel-jest": "^21.2.0",
     "jest": "^21.2.1",
     "regenerator-runtime": "^0.11.0"
   },
