@@ -1,4 +1,5 @@
 {
+  "MAX_LENGTH":6,
   "validLetters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   "motoNewFormat": {
     "name": "motoNewFormat",

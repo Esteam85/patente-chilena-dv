@@ -2,15 +2,12 @@ const _ = require('lodash');
 const _variables = require('./variables.json');
 
 class Ppu{
-
-
   constructor (ppu){
     this.ppu = ppu;
     this.format = this.verifyPpuType(ppu);
   }
-
   verifyPpuType(ppu){
-    if (ppu.length !== 6) {
+    if (ppu.length !== _variables.MAX_LENGTH) {
       throw new Error("La patente(ppu) ingresada es de largo inválido")
     }
     // New Moto Format
@@ -37,7 +34,6 @@ class Ppu{
     }
     throw new Error("Ppu no corresponde a ningun formato válido")
   }
-
   isAutoMovilNew(ppu) {
     // Validate format XXXX11
     const regexAutomovil = new RegExp(/^[b-d,f-h,j-l,p,r-t,v-z]{2}[\-\. ]?[b-d,f-h,j-l,p,r-t,v-z]{2}[\.\- ]?[0-9]{2}$/, 'i');
@@ -48,7 +44,6 @@ class Ppu{
     const regexAutomovil = new RegExp(/^[a-z]{2}[\.\- ]?[0-9]{2}[\.\- ]?[0-9]{2}$/, 'i');
     return regexAutomovil.test(ppu);
   }
-
   isMoto(ppu) {
     // Validate format XX0111 / XX111 / XXX011 / XXX11
     const regexMoto = new RegExp(/^[a-z]{2}0[0-9]{3}$|^[a-z]{2}[0-9]{3}$|^[b-d,f-h,j-l,p,r-t,v-z]{3}[0-9]{2}$|^[b-d,f-h,j-l,p,r-t,v-z]{3}0[0-9]{2}$/, 'i');
