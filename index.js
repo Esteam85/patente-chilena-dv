@@ -1,2 +1,3 @@
 'use strict';
-module.exports = {};
+const Ppu = require('./ppu');
+module.exports = Ppu;

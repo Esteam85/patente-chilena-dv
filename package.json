@@ -8,11 +8,16 @@
     "email": "contacto@econtreras.net",
     "url": "econtreras.net"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Esteam85/patente-chilena-dv.git"
+  },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "bdd": "cucumber-js __functional_tests__"
+    "bdd": "cucumber-js __functional_tests__",
+    "test": "jest"
   },
   "files": [
     "index.js"

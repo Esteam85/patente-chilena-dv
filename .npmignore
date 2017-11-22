@@ -1,0 +1,9 @@
+node_modules
+
+#tests
+__tests__
+__functional_tests__
+coverage
+
+#editor settings
+.idea
