@@ -7,27 +7,25 @@ describe("transformInPreNumber | Test", ()=>{
 
   test('should return a number that represent the ppu when format is LLL.NNN', (done)=>{
     let ppu = new Ppu('GKZ444');
-    let numberPPu = Index.transformInPreNumber(ppu)
-    expect(typeof numberPPu).toBe('object');
-    expect(numberPPu.length).toBe(_variables.MAX_LENGTH);
-    console.log(numberPPu);
+    expect(typeof ppu.numbers).toBe('object');
+    expect(ppu.numbers.length).toBe(_variables.MAX_LENGTH);
+    console.log(ppu.numbers);
     done();
   });
 
   test('should return a number that represent the ppu when format is LLL.NNN', (done)=>{
     let ppu = new Ppu('GKZT44');
-    let numberPPu = Index.transformInPreNumber(ppu);
-    expect(typeof numberPPu).toBe('object');
-    expect(numberPPu.length).toBe(_variables.MAX_LENGTH);
-    console.log(numberPPu);
+    expect(typeof ppu.numbers).toBe('object');
+    expect(ppu.numbers.length).toBe(_variables.MAX_LENGTH);
+    console.log(ppu.numbers);
     done();
   });
 
   test('should return a number that represent the ppu when format is LL.NNNN', (done)=>{
     let ppu = new Ppu('UT2938');
-    let numberPPu = Index.transformInPreNumber(ppu);
-    expect(typeof numberPPu).toBe('object');
-    expect(numberPPu.length).toBe(_variables.MAX_LENGTH);
+    expect(typeof ppu.numbers).toBe('object');
+    expect(ppu.numbers.length).toBe(_variables.MAX_LENGTH);
+    console.log(ppu.numbers);
     done();
   });
 

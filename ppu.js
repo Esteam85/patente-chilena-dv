@@ -1,10 +1,12 @@
 const _ = require('lodash');
 const _variables = require('./variables.json');
+const _letterDvDb = require('./letterDvDB.json');
 
 class Ppu{
   constructor (ppu){
     this.ppu = ppu;
     this.format = this.verifyPpuType(ppu);
+    this.numbers = this.transformInPreNumber(this);
   }
   verifyPpuType(ppu){
     if (ppu.length !== _variables.MAX_LENGTH) {
@@ -53,6 +55,54 @@ class Ppu{
     // Validate format XXX111
     const regexCarroArrastre = new RegExp(/^[a-zA-Z]{3}[1-9]{1}[0-9]{2}$/, 'i');
     return regexCarroArrastre.test(ppu);
+  }
+  transformInPreNumber (ppu) {
+    // Reconocer Typo de transformación por tipo de ppu
+    let type = ppu.format.type;
+    // Convertir dependiendo el formato
+    if ('LLL.NNN' === type) {
+      let ppuToArray = Array.from(ppu.ppu);
+      _.each(ppuToArray, (letter, key) => {
+        if (!Number.isInteger(parseInt(letter))) {
+          ppuToArray[ key ] = parseInt(_letterDvDb[ letter.toUpperCase() ]);
+        } else {
+          ppuToArray[ key ] = parseInt(letter);
+        }
+      });
+      return ppuToArray
+    }
+
+    if ('LLLL.NN' === type) {
+      let ppuToArray = Array.from(ppu.ppu);
+      _.each(ppuToArray, (letter, key) => {
+        if (!Number.isInteger(parseInt(letter))) {
+          ppuToArray[ key ] = parseInt(_letterDvDb[ letter.toUpperCase() ]);
+        } else {
+          ppuToArray[ key ] = parseInt(letter);
+        }
+      });
+      return ppuToArray
+    }
+
+    if ('LL.NNNN' === type) {
+      let ppuToArray = Array.from(ppu.ppu);
+      let letters ="";
+      _.each(ppuToArray, (letter,index) =>{
+        if(!Number.isInteger(parseInt(letter))){
+          letters += letter;
+        } else {
+          ppuToArray[index] = parseInt(letter);
+        }
+      });
+
+      let numberAsString = _letterDvDb[letters];
+      _.each(numberAsString,(numberString,index)=>{
+        ppuToArray[index] = parseInt(numberString);
+      });
+
+      return ppuToArray
+    }
+
   }
 }
 
