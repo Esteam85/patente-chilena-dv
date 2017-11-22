@@ -1,5 +1,5 @@
 'use strict';
-const Ppu = require('../Ppu');
+const Ppu = require('../ppu');
 
 describe("transformInPreNumber | Test", () => {
 
