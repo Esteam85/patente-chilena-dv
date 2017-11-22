@@ -8,24 +8,21 @@ describe("transformInPreNumber | Test", ()=>{
   test('should return a number that represent the ppu when format is LLL.NNN', (done)=>{
     let ppu = new Ppu('GKZ444');
     expect(typeof ppu.numbers).toBe('object');
-    expect(ppu.numbers.length).toBe(_variables.MAX_LENGTH);
-    console.log(ppu.numbers);
+    expect(ppu.numbers.length).toBe(6);
     done();
   });
 
-  test('should return a number that represent the ppu when format is LLL.NNN', (done)=>{
+  test('should return a number that represent the ppu when format is LLLL.NNN', (done)=>{
     let ppu = new Ppu('GKZT44');
     expect(typeof ppu.numbers).toBe('object');
-    expect(ppu.numbers.length).toBe(_variables.MAX_LENGTH);
-    console.log(ppu.numbers);
+    expect(ppu.numbers.length).toBe(6);
     done();
   });
 
   test('should return a number that represent the ppu when format is LL.NNNN', (done)=>{
-    let ppu = new Ppu('UT2938');
+    let ppu = new Ppu('XX1111');
     expect(typeof ppu.numbers).toBe('object');
-    expect(ppu.numbers.length).toBe(_variables.MAX_LENGTH);
-    console.log(ppu.numbers);
+    expect(ppu.numbers.length).toBe(7);
     done();
   });
 
