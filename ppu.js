@@ -81,12 +81,11 @@ class Ppu {
     if ('LL.NNNN' === type) {
       let ppuNumbersAsArray = [];
       let ppuLetters = ppu.ppu.substring(0, 2);
-      let ppuNumbersASstring =  ppu.ppu.substring(2, 6);
+      let ppuNumbersASstring = ppu.ppu.substring(2, 6);
       let ppuLettersTransformedToNumbersASstring = _letterDvDb[ ppuLetters ];
       let ppuNumbersAll = ppuLettersTransformedToNumbersASstring + ppuNumbersASstring;
 
       ppuNumbersAsArray = Array.from(ppuNumbersAll);
-
 
       return ppuNumbersAsArray
     }
@@ -110,6 +109,20 @@ class Ppu {
       if (Rf === 11) return "0";
       if (Rf === 10) return "K";
       if (Rf < 10) return Rf.toString();
+    }
+    if (format === 'LLL.NNN' || format === 'LLLL.NN') {
+      let SP =
+        ppu.numbers[ 5 ] * 2 +
+        ppu.numbers[ 4 ] * 3 +
+        ppu.numbers[ 3 ] * 4 +
+        ppu.numbers[ 2 ] * 5 +
+        ppu.numbers[ 1 ] * 6 +
+        ppu.numbers[ 0 ] * 7;
+      let R = SP % 11;
+      if(R===0)return "0";
+      let RV = 11 - R;
+      if (RV === 10) return "K";
+      return RV.toString();
     }
   }
 }
