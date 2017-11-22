@@ -1,29 +1,29 @@
 'use strict';
-const Index = require('../Index');
 const Ppu = require('../Ppu');
-const _variables = require('../variables.json');
 
-describe("transformInPreNumber | Test", ()=>{
+describe("transformInPreNumber | Test", () => {
 
-  test('should return a number that represent the ppu when format is LLL.NNN', (done)=>{
-    let ppu = new Ppu('GKZ444');
-    expect(typeof ppu.numbers).toBe('object');
-    expect(ppu.numbers.length).toBe(6);
+  test('should return a number that represent the ppu when format is LLL.NNN', (done) => {
+    let validPpu = { ppu: 'GKZ444', format: { type: 'LLL.NNN' } }
+    let ppuArray = Ppu.prototype.transformInPreNumber(validPpu);
+    expect(typeof ppuArray).toBe('object');
+    expect(ppuArray.length).toBe(6);
     done();
   });
 
-  test('should return a number that represent the ppu when format is LLLL.NNN', (done)=>{
-    let ppu = new Ppu('GKZT44');
-    expect(typeof ppu.numbers).toBe('object');
-    expect(ppu.numbers.length).toBe(6);
+  test('should return a number that represent the ppu when format is LLLL.NN', (done) => {
+    let validPpu = { ppu: 'GKZT44', format: { type: 'LLLL.NN' } }
+    let ppuArray = Ppu.prototype.transformInPreNumber(validPpu);
+    expect(typeof ppuArray).toBe('object');
+    expect(ppuArray.length).toBe(6);
     done();
   });
 
-  test('should return a number that represent the ppu when format is LL.NNNN', (done)=>{
-    let ppu = new Ppu('XX1111');
-    expect(typeof ppu.numbers).toBe('object');
-    expect(ppu.numbers.length).toBe(7);
+  test('should return a number that represent the ppu when format is LL.NNNN', (done) => {
+    let validPpu = { ppu: 'XX1111', format: { type: 'LL.NNNN' } }
+    let ppuArray = Ppu.prototype.transformInPreNumber(validPpu);
+    expect(typeof ppuArray).toBe('object');
+    expect(ppuArray.length).toBe(7);
     done();
   });
-
 });
