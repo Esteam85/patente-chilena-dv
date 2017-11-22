@@ -11,7 +11,9 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {},
+  "scripts": {
+    "bdd": "cucumber-js __functional_tests__"
+  },
   "files": [
     "index.js"
   ],
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "babel-jest": "^21.2.0",
+    "cucumber": "^3.1.0",
     "jest": "^21.2.1",
     "regenerator-runtime": "^0.11.0"
   },
