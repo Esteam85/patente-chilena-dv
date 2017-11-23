@@ -4,8 +4,8 @@ source
 .gitignore
 
 #tests
-source/__tests__
-source/__functional_tests__
+distribution/__tests__
+distribution/__functional_tests__
 coverage
 
 #editor settings
