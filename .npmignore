@@ -1,8 +1,11 @@
 node_modules
+package-lock.json
+source
+.gitignore
 
 #tests
-__tests__
-__functional_tests__
+source/__tests__
+source/__functional_tests__
 coverage
 
 #editor settings
