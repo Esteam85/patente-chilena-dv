@@ -14,13 +14,14 @@ class Ppu {
     if (ppu.length !== _variables.MAX_LENGTH) {
       throw new Error("La patente(ppu) ingresada es de largo inválido")
     }
+
     // New Moto Format
-    if (_.includes(ppu, '0', 3) && this.isMoto(ppu)) {
+    if (this.isMotoNew(ppu)) {
       return _variables.motoNewFormat;
     }
 
     // Old Moto Format
-    if (_.includes(ppu, '0', 2) && this.isMoto(ppu)) {
+    if (this.isMotoOld(ppu)) {
       return _variables.motoOldFormat;
     }
 
@@ -51,9 +52,15 @@ class Ppu {
     return regexAutomovil.test(ppu);
   }
 
-  isMoto (ppu) {
+  isMotoOld (ppu) {
     // Validate format XX0111 / XX111 / XXX011 / XXX11
-    const regexMoto = new RegExp(/^[a-z]{2}0[0-9]{3}$|^[a-z]{2}[0-9]{3}$|^[b-d,f-h,j-l,p,r-t,v-z]{3}[0-9]{2}$|^[b-d,f-h,j-l,p,r-t,v-z]{3}0[0-9]{2}$/, 'i');
+    const regexMoto = new RegExp(/^[a-z]{2}0[0-9]{3}$|^[a-z]{2}[0-9]{3}$/, 'i');
+    return regexMoto.test(ppu);
+  }
+
+  isMotoNew (ppu) {
+    // Validate format XX0111 / XX111 / XXX011 / XXX11
+    const regexMoto = new RegExp(/^[b-d,f-h,j-l,p,r-t,v-z]{3}[0-9]{2}$|^[b-d,f-h,j-l,p,r-t,v-z]{3}0[0-9]{2}$/, 'i');
     return regexMoto.test(ppu);
   }
 

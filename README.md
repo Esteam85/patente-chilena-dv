@@ -1,7 +1,7 @@
 ## Patente Chilena Dv
 Simple Ppu DV calculator based on Servicio De Registro Civil E Identificación  guide [Instructivo para validación de patentes v 2.0](http://www.srcei.cl/Manuales/ValidacionPatentes.pdf).
 
-Support's 3 Ppu Formats
+Supports 3 Ppu Formats
 
  - LLLL.NN: 4 letters and 2 numbers like BBBB01 or BBCB01. 
  - LLL.NNN: 3 letters and 3 numbers like BBB010 or BBC099.
@@ -12,7 +12,7 @@ Support's 3 Ppu Formats
 ```
 $npm install patente-chilena-dv --save
 ```
-### Using
+### Usage
 ```
 const Ppu = require('patente-chilena-dv');
 let myPpu = new Ppu('HWJP59');

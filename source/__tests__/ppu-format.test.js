@@ -123,6 +123,7 @@ describe("Testing | Ppu", () => {
     expect(ppu.type).toBe(_variables.carroArrastreFormat.type);
     done();
   });
+
   test('should return erro if no has any valid format and has length 6', (done) => {
     try {
       let invalidPPU = '*^·"·$&';

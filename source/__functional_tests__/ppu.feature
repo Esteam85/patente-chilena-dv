@@ -30,3 +30,4 @@ Feature: Generate Ppu DV
     | VF5302 | LL.NNNN | 7  |
     | AA1112 | LL.NNNN | 0  |
     | EA1123 | LL.NNNN | K  |
+    | WT0676 | LL.NNNN | 9  |
