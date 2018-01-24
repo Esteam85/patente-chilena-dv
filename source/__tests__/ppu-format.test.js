@@ -19,18 +19,7 @@ describe("Testing | Ppu", () => {
     expect(ppu.type).not.toBe(_variables.motoNewFormat.type);
     done();
   })
-  test('should not return "motoNew" if ppu not contains 0, 3 letters and has length 6 but 0 is not at index 3', (done) => {
-    let inValidPpuMoto = 'XXX111';
-    let ppu = Ppu.prototype.verifyPpuType(inValidPpuMoto);
-    expect(ppu.name).not.toBe(_variables.motoNewFormat.name);
-    done();
-  })
-  test('should not return "motoNew" if ppu contains 0, 3 letters and has length 6 but 0 is not at index 3', (done) => {
-    let inValidPpuMoto = 'XXX110';
-    let ppu = Ppu.prototype.verifyPpuType(inValidPpuMoto);
-    expect(ppu.name).not.toBe(_variables.motoNewFormat.name);
-    done();
-  })
+
   test('should not return "motoNew" if ppu contains 0, 3 letters and has length 6 but 0 is at index 3', (done) => {
     let validPpuMotoNew = 'XXX011';
     let ppu = Ppu.prototype.verifyPpuType(validPpuMotoNew);
@@ -116,13 +105,6 @@ describe("Testing | Ppu", () => {
       done();
     }
   });
-  test('should return "carroArrastre" if ppu not contains 0, 2 letters, 4 numbers and has length 6', (done) => {
-    let validPpuCarroArrastre = 'XXX111';
-    let ppu = Ppu.prototype.verifyPpuType(validPpuCarroArrastre);
-    expect(ppu.name).toBe(_variables.carroArrastreFormat.name);
-    expect(ppu.type).toBe(_variables.carroArrastreFormat.type);
-    done();
-  });
 
   test('should return erro if no has any valid format and has length 6', (done) => {
     try {
@@ -132,4 +114,16 @@ describe("Testing | Ppu", () => {
       done();
     }
   });
+
+  test('should throw an error if ppu not contains 0, 3 letters and has length 6 but 0 is not at index 3 (Carro de Arrastre)', (done) => {
+    let validCarroDeArrastre = 'XXX111';
+    expect(()=>Ppu.prototype.verifyPpuType(validCarroDeArrastre)).toThrowError("CARRO DE ARRASTRE no es un formato válido.");
+    done();
+  })
+
+  test('should throw an error  if ppu contains 0, 3 letters and has length 6 but 0 is not at index 3 (Carro de Arrastre)', (done) => {
+    let validCarroDeArrastre = 'XXX110';
+    expect(()=>Ppu.prototype.verifyPpuType(validCarroDeArrastre)).toThrowError("CARRO DE ARRASTRE no es un formato válido.");
+    done();
+  })
 });

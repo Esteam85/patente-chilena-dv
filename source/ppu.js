@@ -16,55 +16,55 @@ class Ppu {
     }
 
     // New Moto Format
-    if (this.isMotoNew(ppu)) {
+    if (this.constructor.isMotoNew(ppu)) {
       return _variables.motoNewFormat;
     }
 
     // Old Moto Format
-    if (this.isMotoOld(ppu)) {
+    if (this.constructor.isMotoOld(ppu)) {
       return _variables.motoOldFormat;
     }
 
     // New Auto Format
-    if (this.isAutoMovilNew(ppu)) {
+    if (this.constructor.isAutoMovilNew(ppu)) {
       return _variables.autoNewFormat;
     }
     // Old Auto Format
-    if (this.isAutoMovilOld(ppu)) {
+    if (this.constructor.isAutoMovilOld(ppu)) {
       return _variables.autoOldFormat;
     }
     // Carro Arrastre Format
-    if (this.isCarroArrastre(ppu)) {
-      return _variables.carroArrastreFormat;
+    if (this.constructor.isCarroArrastre(ppu)) {
+      throw new Error("CARRO DE ARRASTRE no es un formato válido.")
     }
     throw new Error("Ppu no corresponde a ningun formato válido")
   }
 
-  isAutoMovilNew (ppu) {
+  static isAutoMovilNew (ppu) {
     // Validate format XXXX11
     const regexAutomovil = new RegExp(/^[b-d,f-h,j-l,p,r-t,v-z]{2}[\-\. ]?[b-d,f-h,j-l,p,r-t,v-z]{2}[\.\- ]?[0-9]{2}$/, 'i');
     return regexAutomovil.test(ppu);
   }
 
-  isAutoMovilOld (ppu) {
+  static isAutoMovilOld (ppu) {
     // Validate format XX1111
     const regexAutomovil = new RegExp(/^[a-z]{2}[\.\- ]?[0-9]{2}[\.\- ]?[0-9]{2}$/, 'i');
     return regexAutomovil.test(ppu);
   }
 
-  isMotoOld (ppu) {
+  static isMotoOld (ppu) {
     // Validate format XX0111 / XX111 / XXX011 / XXX11
     const regexMoto = new RegExp(/^[a-z]{2}0[0-9]{3}$|^[a-z]{2}[0-9]{3}$/, 'i');
     return regexMoto.test(ppu);
   }
 
-  isMotoNew (ppu) {
+  static isMotoNew (ppu) {
     // Validate format XX0111 / XX111 / XXX011 / XXX11
     const regexMoto = new RegExp(/^[b-d,f-h,j-l,p,r-t,v-z]{3}[0-9]{2}$|^[b-d,f-h,j-l,p,r-t,v-z]{3}0[0-9]{2}$/, 'i');
     return regexMoto.test(ppu);
   }
 
-  isCarroArrastre (ppu) {
+  static isCarroArrastre (ppu) {
     // Validate format XXX111
     const regexCarroArrastre = new RegExp(/^[a-zA-Z]{3}[1-9]{1}[0-9]{2}$/, 'i');
     return regexCarroArrastre.test(ppu);
@@ -126,7 +126,7 @@ class Ppu {
         ppu.numbers[ 1 ] * 6 +
         ppu.numbers[ 0 ] * 7;
       let R = SP % 11;
-      if(R===0)return "0";
+      if (R === 0) return "0";
       let RV = 11 - R;
       if (RV === 10) return "K";
       return RV.toString();
