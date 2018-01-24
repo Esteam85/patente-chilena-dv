@@ -1,6 +1,6 @@
 {
   "name": "patente-chilena-dv",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Calcular dígito verificador de patente(ppu) Chilena",
   "license": "MIT",
   "author": {
