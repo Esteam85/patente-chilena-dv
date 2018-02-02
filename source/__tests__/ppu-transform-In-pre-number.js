@@ -26,4 +26,12 @@ describe("transformInPreNumber | Test", () => {
     expect(ppuArray.length).toBe(7);
     done();
   });
+
+  test('should throw an error if is an "autoOld" and letters are not found in letterDb', (done) => {
+    let invalidPpuAutoOld = { ppu: 'XI1234', format: { type: 'LL.NNNN' } }
+    expect(() => {
+      Ppu.prototype.transformInPreNumber(invalidPpuAutoOld);
+    }).toThrow("Letras de Ppu de Auto Antiguo inválidas");
+    done();
+  });
 });

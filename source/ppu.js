@@ -86,10 +86,10 @@ class Ppu {
       return ppuToArray
     }
     if ('LL.NNNN' === type) {
-      let ppuNumbersAsArray = [];
+      let ppuNumbersAsArray;
       let ppuLetters = ppu.ppu.substring(0, 2);
       let ppuNumbersASstring = ppu.ppu.substring(2, 6);
-      let ppuLettersTransformedToNumbersASstring = _letterDvDb[ ppuLetters ];
+      let ppuLettersTransformedToNumbersASstring = this.lettersToNumbers(ppuLetters);
       let ppuNumbersAll = ppuLettersTransformedToNumbersASstring + ppuNumbersASstring;
 
       ppuNumbersAsArray = Array.from(ppuNumbersAll);
@@ -97,6 +97,15 @@ class Ppu {
       return ppuNumbersAsArray
     }
 
+  }
+
+  lettersToNumbers (ppuLetters) {
+    let transformedPpuLetters = _letterDvDb[ ppuLetters ]
+    if (typeof transformedPpuLetters === 'string') {
+      return transformedPpuLetters;
+    } else {
+      throw new Error("Letras de Ppu de Auto Antiguo inválidas");
+    }
   }
 
   calculateDv (ppu) {
