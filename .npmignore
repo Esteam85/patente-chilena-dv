@@ -2,11 +2,13 @@ node_modules
 package-lock.json
 source
 .gitignore
+.babelrc
 
 #tests
 distribution/__tests__
 distribution/__functional_tests__
 coverage
+cucumber.js
 
 #editor settings
 .idea
