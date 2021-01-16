@@ -1,5 +1,5 @@
 ## Patente Chilena Dv
-Simple Ppu DV calculator based on Servicio De Registro Civil E Identificación  guide [Instructivo para validación de patentes v 2.0](http://www.srcei.cl/Manuales/ValidacionPatentes.pdf).
+Simple Ppu DV calculator based on Servicio De Registro Civil E Identificación guide [Instructivo para validación de patentes v 2.0](https://www.registrocivil.cl/PortalOI/Manuales/ValidacionPatentes.pdf).
 
 Supports 3 Ppu Formats
 
